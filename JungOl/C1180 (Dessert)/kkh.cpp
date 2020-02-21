@@ -50,7 +50,7 @@ void dfs(int n) {
         return;
     }
      
-    for (int i = -1; i >= -3; i--) {  //연산자 수열 정하기
+    for (int i = -1; i >= -3; i--) {  //연산자 순열 구하기
         oper[n + 1] = i;
         dfs(n + 1);
     }
