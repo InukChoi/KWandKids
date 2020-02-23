@@ -45,7 +45,8 @@ int main() {
 			t1--;
 		}
 	}
-
+	map[v[0].first][v[0].second] = 1;
+	
 	//맵 그리기
 	int cnt=0;
 	for (int i = 0; i < p.size(); i++) {
@@ -89,30 +90,10 @@ int main() {
 		cnt += p[i];
 	}
 
-	//행제한, 열제한
-	int q1, q2, q3, q4; 
-	if (npos[0] >= npos[2]) {
-		q1 = npos[2];
-		q2 = npos[0];
-	}
-	else {
-		q1 = npos[0];
-		q2 = npos[2];
-	}
-	if (npos[1] >= npos[3]) {
-		q3 = npos[3];
-		q4 = npos[1];
-	}
-	else {
-		q3 = npos[1];
-		q4 = npos[3];
-	}
-	//printf("%d %d %d %d\n", q1, q2, q3, q4);
-	
 	//bfs
 	q.push({ npos[0],npos[1] });
-	(map[npos[0]][npos[1]] == 1) ? map2[npos[0]][npos[1]] = 4 : map2[npos[0]][npos[1]] = 1;
-	//printf("%d\n", map2[npos[0]][npos[1]]);
+	(map[npos[0]][npos[1]] == 1) ? map2[npos[0]][npos[1]] = k : map2[npos[0]][npos[1]] = 1;
+	
 	while (!q.empty()) {
 		int x = q.front().first;
 		int y = q.front().second;
@@ -121,14 +102,17 @@ int main() {
 		for (int i = 0; i < 4; i++) {
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if (nx >= q1 && nx <= q2 && ny >= q3 && ny <= q4) {
-				if (map2[nx][ny] == 0) {
-					if (map[nx][ny] == 1) {
-						map2[nx][ny] = map2[x][y] + 4;
-					}
-					else {
-						map2[nx][ny] = map2[x][y] + 1;
-					}
+
+			int temp;
+			if (map[nx][ny] == 1) {
+				temp = map2[x][y] + k;
+			}
+			else {
+				temp = map2[x][y] + 1;
+			}
+			if (nx >= 1 && nx <= n && ny >= 1 && ny <= n) {
+				if (map2[nx][ny] == 0 || map2[nx][ny]>temp) {
+					map2[nx][ny] = temp;
 					map3[nx][ny] = {x,y};
 					q.push({ nx,ny });
 				}
@@ -145,14 +129,18 @@ int main() {
 	while (1) {
 		int xx = map3[x][y].first;
 		int yy = map3[x][y].second;
-		if (map3[xx][yy].first == 0 && map3[xx][yy].second == 0) {
-			route.push_back({ xx, yy });
-			break;
-		}
+		
 		if (x - xx != curve.first || y - yy != curve.second) {
 			curve.first = x - xx;
 			curve.second = y - yy;
 			route.push_back({ x,y });
+		}
+		if (map3[xx][yy].first == 0 && map3[xx][yy].second == 0) {
+			if (xx == 0 || yy == 0) {
+				break;
+			}
+			route.push_back({ xx, yy });
+			break;
 		}
 		x = xx;
 		y = yy;
