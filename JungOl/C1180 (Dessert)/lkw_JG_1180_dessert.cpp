@@ -9,7 +9,7 @@ char b_t[14];
 
 int cnt = 0;
 
-int calc(int N) {	
+int calc(int N) {	// '.' 연산을 우선 실행한 후에, 나머지 연산을 진행하여 결과를 반환
 	int dot=1, end = N, idx=0;
 	for (int i = 0; i < N - 1; i++) {
 		n_t[i] = num[i];
