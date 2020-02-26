@@ -10,7 +10,7 @@ void dfs(int cnt, int pastChar) {
     }
  
     for (int i = 0; i <= 25; i++) {
-        if (pastChar == i)
+        if (pastChar == i)    //이전에 사용한 문자는 
             continue;
  
         if (nChar_cnt[i]) {
