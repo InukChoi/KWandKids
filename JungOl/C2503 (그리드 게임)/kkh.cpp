@@ -102,9 +102,8 @@ int main() {
 			if (isvis[i][j] == 0)
 				bfs(++nIndex, i, j);
 
-
 	connection();
-
+	
 	for (int i = 1; i <= nIndex; i++) {
 		if (len_check[i])	continue;
 
@@ -113,10 +112,9 @@ int main() {
 			res_min = tmp;
 
 		for (int j = i + 1; j <= nIndex; j++)   //가장 마지막 구역 - 지나갔던 구역 -> 최소거리와 비교
-    if (tmp - isgrid[j] + 1 >= res_min)     //탐색 전 가지치기 할 수 있음
+   			 if (tmp - isgrid[j] + 1 >= res_min)     //탐색 전 가지치기 할 수 있음
 				len_check[j] = 1;		
 	}
-
 	cout << res_min;
 	return 0;
 }
