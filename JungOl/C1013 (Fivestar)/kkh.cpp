@@ -104,8 +104,8 @@ int main() {
         for (int j = 1; j <= M; j++) {
             cin >> map[i][j];
             if (map[i][j] == '*') {
-                star_cnt++;
-                star_row_cnt[i]++;    //입력 값 별 카운트
+                star_cnt++;          //입력 값 별 카운트
+                star_row_cnt[i]++;   //각 행 별 
             }
         }   
          
