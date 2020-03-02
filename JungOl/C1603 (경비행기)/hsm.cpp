@@ -12,10 +12,8 @@ pair<int, int> a_list[1010];
 int ans;
 
 /*
-인터넷 참고해서 이분탐색 아이디어 얻어서 풀었는디...
-백준에서는 통과하는데
-정올에서는 95점 나오네요...ㅠㅠㅠㅠ
-더 고민해보고 고칠게요
+인터넷 참고해서 이분탐색 아이디어 얻어서 풀었습니다.
+정올마지막테케 수정완료^ㅡ^
 */
 
 int main() {
@@ -55,7 +53,7 @@ int main() {
 			}
 
 			for (int i = 1; i <= n + 1; i++) {
-				if (!visited[i] && mid*mid > (a_list[cur].first - a_list[i].first)*(a_list[cur].first - a_list[i].first) + (a_list[cur].second - a_list[i].second)*(a_list[cur].second - a_list[i].second)) {
+				if (!visited[i] && mid*mid >= (a_list[cur].first - a_list[i].first)*(a_list[cur].first - a_list[i].first) + (a_list[cur].second - a_list[i].second)*(a_list[cur].second - a_list[i].second)) {
 					visited[i] = 1;
 					q1.push(i);
 					q2.push(cnt + 1);
