@@ -70,13 +70,13 @@ int main()
                 cin >> board[i][j];
             }
         }
-       //행의 누적합을 구한다
+       //열의 누적합을 구한다
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= M-1; j++) {
                 board[i][j + 1] += board[i][j];
             }
         }
-      //열의 누적합을 구한다
+      //행의 누적합을 구한다
         for (int i = 1; i <= N-1; i++) {
             for (int j = 1; j <= M; j++) {
                 board[i + 1][j] += board[i][j];
