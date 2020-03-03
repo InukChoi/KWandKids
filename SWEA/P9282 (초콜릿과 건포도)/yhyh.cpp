@@ -41,7 +41,7 @@ int Solve(int si, int sj, int ei, int ej)
         }
  
         if (sj < ej) {
-            for (int j = sj; j < ej; j++) { //j번째 행에서 나눈다
+            for (int j = sj; j < ej; j++) { //j번째 열에서 나눈다
                 minSum = MIN(minSum, csum + Solve(si, sj, ei, j) + Solve(si, j + 1, ei, ej));
             }
         }
