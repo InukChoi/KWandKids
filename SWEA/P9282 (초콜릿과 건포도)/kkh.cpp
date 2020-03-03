@@ -42,7 +42,7 @@ int main() {
  
         memset(dp, 0, sizeof(dp));
         pair<int, int> res = dfs(1, 1, N, M);
-        printf("#%d %d\n", tc, res.second);
+        printf("#%d %d\n", tc, res.second);     //두번째만 출력
     }
     return 0;
 }
