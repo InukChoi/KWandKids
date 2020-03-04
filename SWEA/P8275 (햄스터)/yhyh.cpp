@@ -37,7 +37,7 @@ void setHam(int cnt)
 {
     if (cnt > N)
     {
-        for (int i = 0; i < M; i++)
+        for (int i = 0; i < M; i++) //제약조건 체크
         {
             int s = chk[i][0];
             int e = chk[i][1];
